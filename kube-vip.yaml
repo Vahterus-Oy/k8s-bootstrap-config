@@ -36,7 +36,9 @@ spec:
           value: "true"
         - name: port
           value: "6443"
-        - name: vip_interface
+        - name : lb_enable
+          value: "true"
+                - name: vip_interface
           value: $interface
         - name: vip_cidr
           value: "32"
