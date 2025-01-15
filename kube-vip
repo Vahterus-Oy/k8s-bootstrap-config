@@ -109,15 +109,18 @@ spec:
             - NET_RAW
             - SYS_TIME
       hostNetwork: true
+      hostAliases:
+      - hostnames:
+        - kubernetes
+        ip: 127.0.0.1
       serviceAccountName: kube-vip
+      volumes:
+      - hostPath:
+          path: /etc/rancher/rke2/rke2.yaml
+        name: kubeconfig
       tolerations:
       - effect: NoSchedule
         operator: Exists
       - effect: NoExecute
         operator: Exists
   updateStrategy: {}
-status:
-  currentNumberScheduled: 0
-  desiredNumberScheduled: 0
-  numberMisscheduled: 0
-  numberReady: 0
