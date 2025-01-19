@@ -8,16 +8,6 @@ spec:
     kubeProxyReplacement: true
     k8sServiceHost: $vip
     k8sServicePort: 6443
-    k8sClientRateLimit:
-      qps: 33
-      burst: 40
-    l2announcements:
-      enabled: true
-      leaseDuration: "3s"
-      leaseRenewDeadline: "1s"
-      leaseRetryPeriod: "200ms"
-    externalIPs:
-      enabled: true
     operator:
       replicas: 2
     ipam:
