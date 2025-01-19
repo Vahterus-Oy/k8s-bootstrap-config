@@ -18,6 +18,8 @@ spec:
       leaseRetryPeriod: "200ms"
     operator:
       replicas: 2
+    externalIPs:
+      enabled: true
     ipam:
       mode: cluster-pool
       clusterPoolIPv4PodCIDRList:
