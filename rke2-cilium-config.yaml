@@ -14,6 +14,7 @@ spec:
       mode: cluster-pool
       clusterPoolIPv4PodCIDRList:
         - "10.42.0.0/16"
+      enable-external-ips: false
     hubble:
       enabled: true
       relay:
