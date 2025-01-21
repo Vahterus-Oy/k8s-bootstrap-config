@@ -10,6 +10,10 @@ spec:
     k8sServicePort: 6443
     operator:
       replicas: 2
+      prometheus:
+        enabled: true
+      dashboards:
+        enabled: true
     ipam:
       mode: cluster-pool
       clusterPoolIPv4PodCIDRList:
@@ -19,7 +23,24 @@ spec:
       enabled: true
       relay:
         enabled: true
+        prometheus:
+          enabled: true
       ui:
         enabled: true
+      metrics:
+        enabled:
+        - dns:query;ignoreAAAA
+        - drop
+        - tcp
+        - flow
+        - icmp
+        - http
+        dashboards:
+          enabled: true
     envoy:
       enabled: false
+    tolerations:
+      - key: "CriticalAddonsOnly"
+        operator: "Equal"
+        value: "true"
+        effect: "NoExecute"
