@@ -122,10 +122,14 @@ spec:
           path: /etc/rancher/rke2/rke2.yaml
         name: kubeconfig
       tolerations:
-      - effect: NoSchedule
-        operator: Exists
-      - effect: NoExecute
-        operator: Exists
+        - key: "CriticalAddonsOnly"
+          operator: "Equal"
+          value: "true"
+          effect: "NoExecute"
+        - effect: NoSchedule
+          operator: Exists
+        - effect: NoExecute
+          operator: Exists
   updateStrategy: {}
 ---
 apiVersion: v1
@@ -199,10 +203,14 @@ spec:
       terminationGracePeriodSeconds: 30
       serviceAccountName: kube-vip-cloud-controller
       tolerations:
-      - key: node-role.kubernetes.io/master
-        effect: NoSchedule
-      - key: node-role.kubernetes.io/control-plane
-        effect: NoSchedule
+        - key: node-role.kubernetes.io/master
+          effect: NoSchedule
+        - key: node-role.kubernetes.io/control-plane
+          effect: NoSchedule
+        - key: "CriticalAddonsOnly"
+          operator: "Equal"
+          value: "true"
+          effect: "NoExecute"
       affinity:
         nodeAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
