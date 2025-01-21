@@ -8,10 +8,14 @@ spec:
     kubeProxyReplacement: true
     k8sServiceHost: $vip
     k8sServicePort: 6443
+    prometheus:
+      enabled: true
     operator:
       replicas: 2
       prometheus:
         enabled: true
+        serviceMonitor:
+          enabled: true
       dashboards:
         enabled: true
     ipam:
@@ -29,12 +33,12 @@ spec:
         enabled: true
       metrics:
         enabled:
-        - dns:query;ignoreAAAA
-        - drop
-        - tcp
-        - flow
-        - icmp
-        - http
+          - dns:query;ignoreAAAA
+          - drop
+          - tcp
+          - flow
+          - icmp
+          - http
         dashboards:
           enabled: true
     envoy:
