@@ -33,7 +33,7 @@ spec:
         enabled: true
       metrics:
         enabled:
-          - dns:query;ignoreAAAA
+          - dns
           - drop
           - tcp
           - flow
