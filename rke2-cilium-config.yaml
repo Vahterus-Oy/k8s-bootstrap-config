@@ -14,8 +14,6 @@ spec:
       replicas: 2
       prometheus:
         enabled: true
-        serviceMonitor:
-          enabled: true
       dashboards:
         enabled: true
     ipam:
