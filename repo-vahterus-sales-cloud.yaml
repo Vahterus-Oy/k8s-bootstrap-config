@@ -2,10 +2,6 @@ apiVersion: external-secrets.io/v1beta1
 kind: ClusterExternalSecret
 metadata:
   name: repo-vahterus-sales-cloud-cluster-external-secret
-  labels:
-    argocd.argoproj.io/secret-type: repository
-  annotations:
-    managed-by: argocd.argoproj.io
 spec:
   externalSecretName: 'repo-vahterus-sales-cloud-cluster-external-secret'
   refreshTime: "1m"
@@ -19,6 +15,11 @@ spec:
     target:
       name: repo-vahterus-sales-cloud
       creationPolicy: Owner
+      template:
+        labels:
+          argocd.argoproj.io/secret-type: repository
+        annotations:
+          managed-by: argocd.argoproj.io
     data:
     - secretKey: password
       remoteRef:
@@ -28,7 +29,7 @@ spec:
         key: repo-vahterus-sales-cloud-develop-repo-vahterus-sales-cloud-project
     - secretKey: type
       remoteRef:
-        key: repo-vahterus-sales-cloud-repo-vahterus-sales-cloud-type
+        key: $repoProject
     - secretKey: url
       remoteRef:
         key: repo-vahterus-sales-cloud-repo-vahterus-sales-cloud-url
