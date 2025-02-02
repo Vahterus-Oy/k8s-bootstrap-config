@@ -26,10 +26,10 @@ spec:
         key: repo-vahterus-sales-cloud-repo-vahterus-sales-cloud-password
     - secretKey: project
       remoteRef:
-        key: repo-vahterus-sales-cloud-develop-repo-vahterus-sales-cloud-project
+        key: $repoProject
     - secretKey: type
       remoteRef:
-        key: $repoProject
+        key: repo-vahterus-sales-cloud-repo-vahterus-sales-cloud-type
     - secretKey: url
       remoteRef:
         key: repo-vahterus-sales-cloud-repo-vahterus-sales-cloud-url
